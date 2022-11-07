@@ -1,7 +1,7 @@
 <!--
 ========================================================================================
-    index.html
-    HTML base para el registro de productos y enlace a la calculadora
+    calculadora.html
+    HTML base para la calculadora de ventas económicas
     Hecho por Alberto Leyva
     Sendas Caminos al Señor 
     Ultima modificación: 06/11/22
@@ -10,7 +10,6 @@
 -->
 
 <!DOCTYPE html>
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,20 +26,8 @@
 
     <hr style="width: 70%;">
 
-    <div class="contenedor">
-        <div class="nuevo-producto" id="nuevo-producto">
-            <h4>¡Escribe tus productos y precios!</h4>
-            <input type="text" placeholder="Añade producto" id="producto">
-            <input type="number" placeholder="Precio" min="0" id="precio">
-            <label id="labelDon"> <b>Donación</b> <input type="checkbox" id="donacion"></label>
-            <button id="push">Añadir</button>
-        </div>
-        <div id="productos"></div>
-        
-        <a class="siguiente"href="calculadora.html">Siguiente</a>
-        
-    </div>
+    <a class="siguiente"href="index.html">Otra venta</a>
 
-    <script src="js/guardarDatos.js"></script>
+    <script src="js/calcular.js"></script>
 </body>
 </html>

@@ -1,12 +1,21 @@
 /* 
 ========================================================================================
     script.js
-    Archivo principal para la calculdora de ventas económicas
+    Archivo principal para el registro de productos
     Hecho por Alberto Leyva
     Sendas Caminos al Señor 
     Ultima modificación: 06/11/22
 ========================================================================================
  */
+
+var productosArr = new Array();
+
+class productosObj {
+    constructor(nombre, precio){
+        this.nombre = nombre;
+        this.precio = precio;
+    }
+};
 
 var valorPrecio;
 
@@ -42,6 +51,9 @@ document.querySelector('#push').onclick = function(){
                 <button class="delete">Borrar</button>
             </div>
         `;
+
+        productosArr.push(new productosObj(document.querySelector('#producto').value, document.querySelector('#precio').value));
+
         }
 
         else {
@@ -56,7 +68,13 @@ document.querySelector('#push').onclick = function(){
                 <button class="delete">Borrar</button>
             </div>
         `;
+
+        productosArr.push(new productosObj(document.querySelector('#producto').value, "donacion"));
+
         }
+
+        // Los productos se alojan en el local storage
+        localStorage.setItem("productos", JSON.stringify(productosArr));
         
 
         var current_tasks = document.querySelectorAll(".delete");
@@ -65,6 +83,8 @@ document.querySelector('#push').onclick = function(){
                 this.parentNode.remove();
             }
         }
+
+
 
         
     }
