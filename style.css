@@ -1,0 +1,79 @@
+/* 
+========================================================================================
+    style.css
+    Estilo del HTML para la calculdora de ventas económicas
+    Hecho por Alberto Leyva
+    Sendas Caminos al Señor 
+    Ultima modificación: 06/11/22
+    
+    Intenté hacerlo medio relativa y así pero
+    la neta no le sé mucho a CSS, 
+    si alguien sabe cómo, y quiere modificarlo, adelante xD
+========================================================================================
+ */
+
+header{
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}
+
+header img {
+    width: 20%;
+    min-width: 170px;
+    margin-bottom: 2%;
+}
+
+.contenedor h4 {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}
+
+.nuevo-producto {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}
+
+.nuevo-producto button {
+    margin-top: 1%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.nuevo-producto input {
+    border-color: black;
+}
+
+#productos{
+    width: 70%;
+    position: relative;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.producto{
+    border-radius: 5px;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid black;
+    height: 50px;
+    margin-bottom: 8px;
+    padding: 5px 10px;
+    display: flex;
+}
+.producto span{
+    font-family: 'Poppins',sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+}
+.producto button{
+    background-color: FireBrick;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    height: 100%;
+    width: 10%;
+    border-radius: 5px;
+    color: white;
+}
