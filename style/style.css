@@ -67,7 +67,7 @@ header img {
     font-size: 15px;
     font-weight: 400;
 }
-.producto button{
+.delete{
     background-color: FireBrick;
     border: none;
     cursor: pointer;
@@ -90,4 +90,15 @@ header img {
     color: white;
     font-weight: bold;
     line-height: 25px;
+}
+
+.menos,.mas{
+    background-color: purple;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    height: 100%;
+    width: 5%;
+    border-radius: 5px;
+    color: white;
 }

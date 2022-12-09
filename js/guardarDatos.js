@@ -18,6 +18,7 @@ class productosObj {
 };
 
 var valorPrecio;
+var para = new URLSearchParams();
 
 document.querySelector('#push').onclick = function(){
     if(document.querySelector('#producto').value.length == 0){
@@ -53,6 +54,7 @@ document.querySelector('#push').onclick = function(){
         `;
 
         productosArr.push(new productosObj(document.querySelector('#producto').value, document.querySelector('#precio').value));
+        para.append(document.querySelector('#producto').value, document.querySelector('#precio').value);
 
         }
 
@@ -70,12 +72,9 @@ document.querySelector('#push').onclick = function(){
         `;
 
         productosArr.push(new productosObj(document.querySelector('#producto').value, "donacion"));
+        para.append(document.querySelector('#producto').value, "donacion");
 
         }
-
-        // Los productos se alojan en el local storage
-        localStorage.setItem("productos", JSON.stringify(productosArr));
-        
 
         var current_tasks = document.querySelectorAll(".delete");
         for(var i=0; i<current_tasks.length; i++){
@@ -89,4 +88,10 @@ document.querySelector('#push').onclick = function(){
         
     }
 
+}
+
+
+document.querySelector('.siguiente').onclick = function(){
+    // Los productos se alojan en URLSearchParams
+    location.href = "calculadora.html?" + para.toString();
 }
