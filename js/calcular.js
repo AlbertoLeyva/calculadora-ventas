@@ -4,7 +4,7 @@
     Archivo principal para la calculadora de ventas económicas
     Hecho por Alberto Leyva
     Sendas Caminos al Señor 
-    Ultima modificación: 06/11/22
+    Ultima modificación: 12/02/23
 ========================================================================================
  */
 
