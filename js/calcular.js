@@ -9,49 +9,90 @@
  */
 
 var para = new URLSearchParams(window.location.search);
-console.log(para);
 
+class Producto {
+
+    constructor(nombre, cantidad, precio) {
+        this.nombre = nombre;
+        this.cantidad = cantidad;
+        this.precio = precio;
+    }
+
+}
+
+var productosArr = new Array();
 
 for(const p of para){
 
     if (p[1] == "donacion"){
+
+        var prod = new Producto(p[0], 0, -1);
+
         document.querySelector('#productos').innerHTML += `
-                    <div class="producto">
+                    <div class="producto" id="${prod.nombre}">
                         <span id="nombre-producto">
-                            ${p[0]}
+                            ${prod.nombre}
                         </span>
                         <span id="precio-producto">
                             Donación
                         </span>
                         <button class="menos">-</button>
-                        <span id="cantidad">1</span>
+                        <span id="cantidad">${prod.cantidad}</span>
                         <button class="mas">+</button>
                     </div>
                 `;
+        
+        productosArr.push(prod);
     }
+
     else{
+
+        var prod = new Producto(p[0], 0, p[1]);
+
         document.querySelector('#productos').innerHTML += `
-                    <div class="producto">
+                    <div class="producto" id="${prod.nombre}">
                         <span id="nombre-producto">
-                            ${p[0]}
+                            ${prod.nombre}
                         </span>
                         <span id="precio-producto">
-                            ${p[1]}
+                            ${prod.precio}
                         </span>
                         <button class="menos">-</button>
-                        <span id="cantidad">1</span>
+                        <span id="cantidad">${prod.cantidad}</span>
                         <button class="mas">+</button>
                     </div>
                 `;
+        
+        productosArr.push(prod);
     }
 }
 
-document.querySelector('#menos').onclick = function(){
+var menosButton = document.querySelectorAll(".menos");
+for (var i = 0; i < menosButton.length; i++){
+ 
+    menosButton[i].addEventListener('click', function(i) {
+        
+        var prodID = menosButton[i].closest(".producto").getAttribute("id");
+        
+        if (productosArr[i].cantidad > 0){
+            productosArr[i].cantidad -= 1;
+        }
 
+        console.log(prodID + ": " + productosArr[i].cantidad);
 
+    }.bind(this, i));
 }
 
-document.querySelector('#mas').onclick = function(){
+var masButton = document.querySelectorAll(".mas");
+for (var i = 0; i < masButton.length; i++){
 
+    masButton[i].addEventListener('click', function(i) {
+    
+        var prodID = masButton[i].closest(".producto").getAttribute("id");
+        
+        productosArr[i].cantidad += 1;
 
+        console.log(prodID + ": " + productosArr[i].cantidad);
+
+    }.bind(this, i));
 }
