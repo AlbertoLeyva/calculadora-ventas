@@ -84,6 +84,9 @@ document.querySelector('#push').onclick = function(){
             }
         }   
     } 
+
+    document.getElementById("producto").value = "";
+    document.getElementById("precio").value = "";
 }
 
 
