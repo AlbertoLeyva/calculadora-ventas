@@ -117,6 +117,7 @@ label{
 
 .siguiente {
     margin: auto;
+    margin-top: 10px;
     display: block;
     width: 115px;
     height: 25px;

@@ -20,7 +20,7 @@ function suma(){
             suma += parseInt(productos[i].children[2].children[1].textContent.replace(/\s/g, '')) * parseInt(productos[i].children[1].textContent.replace(/\s/g, '').substring(1));
         }
         else if (parseInt(productos[i].children[2].children[1].textContent.replace(/\s/g, '')) > 0){
-            donacionCount += parseInt(productos[i].children[3].textContent.replace(/\s/g, ''));
+            donacionCount += parseInt(productos[i].children[2].children[1].textContent.replace(/\s/g, ''));
         }
     }
 
