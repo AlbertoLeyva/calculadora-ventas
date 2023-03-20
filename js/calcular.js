@@ -4,9 +4,37 @@
     Archivo principal para la calculadora de ventas económicas
     Hecho por Alberto Leyva
     Sendas Caminos al Señor 
-    Ultima modificación: 12/02/23
+    Ultima modificación: 20/03/23
 ========================================================================================
  */
+
+function suma(){
+
+    var suma = 0;
+    var donacionCount = 0;
+
+    var productos = document.querySelectorAll(".producto");
+    for (var i = 0; i < productos.length; i++){
+
+        if (productos[i].children[1].textContent.replace(/\s/g, '') != "Donación"){
+            suma += parseInt(productos[i].children[2].children[1].textContent.replace(/\s/g, '')) * parseInt(productos[i].children[1].textContent.replace(/\s/g, '').substring(1));
+        }
+        else if (parseInt(productos[i].children[2].children[1].textContent.replace(/\s/g, '')) > 0){
+            donacionCount += parseInt(productos[i].children[3].textContent.replace(/\s/g, ''));
+        }
+    }
+
+    var sumaS = suma.toString();
+
+    if (donacionCount > 0){
+
+        sumaS = sumaS + " + Donación (" + donacionCount + ")";
+
+    }
+
+    return sumaS
+}
+
 
 var para = new URLSearchParams(window.location.search);
 
@@ -22,6 +50,8 @@ class Producto {
 
 var productosArr = new Array();
 
+var cuenta = 0;
+
 for(const p of para){
 
     if (p[1] == "donacion"){
@@ -36,9 +66,11 @@ for(const p of para){
                         <span id="precio-producto">
                             Donación
                         </span>
-                        <button class="menos">-</button>
-                        <span id="cantidad">${prod.cantidad}</span>
-                        <button class="mas">+</button>
+                        <div class="cantidad">
+                            <button class="menos">-</button>
+                            <span id="cantidad">${prod.cantidad}</span>
+                            <button class="mas">+</button>
+                        </div>
                     </div>
                 `;
         
@@ -55,11 +87,13 @@ for(const p of para){
                             ${prod.nombre}
                         </span>
                         <span id="precio-producto">
-                            ${prod.precio}
+                            $${prod.precio}
                         </span>
-                        <button class="menos">-</button>
-                        <span id="cantidad">${prod.cantidad}</span>
-                        <button class="mas">+</button>
+                        <div class="cantidad">
+                            <button class="menos">-</button>
+                            <span id="cantidad">${prod.cantidad}</span>
+                            <button class="mas">+</button>
+                        </div>
                     </div>
                 `;
         
@@ -72,13 +106,19 @@ for (var i = 0; i < menosButton.length; i++){
  
     menosButton[i].addEventListener('click', function(i) {
         
-        var prodID = menosButton[i].closest(".producto").getAttribute("id");
+        var prod = menosButton[i].closest(".producto");
         
         if (productosArr[i].cantidad > 0){
-            productosArr[i].cantidad -= 1;
-        }
 
-        console.log(prodID + ": " + productosArr[i].cantidad);
+            productosArr[i].cantidad -= 1;
+
+            //console.log(prod.children[2].children[1])
+
+            prod.children[2].children[1].textContent = productosArr[i].cantidad;
+
+            document.querySelector("#cuenta").textContent = "$" + suma();
+
+        }
 
     }.bind(this, i));
 }
@@ -88,11 +128,13 @@ for (var i = 0; i < masButton.length; i++){
 
     masButton[i].addEventListener('click', function(i) {
     
-        var prodID = masButton[i].closest(".producto").getAttribute("id");
+        var prod = masButton[i].closest(".producto");
         
         productosArr[i].cantidad += 1;
 
-        console.log(prodID + ": " + productosArr[i].cantidad);
+        prod.children[2].children[1].textContent = productosArr[i].cantidad;
+
+        document.querySelector("#cuenta").textContent = "$" + suma();
 
     }.bind(this, i));
 }

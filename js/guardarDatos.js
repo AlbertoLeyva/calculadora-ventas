@@ -4,7 +4,7 @@
     Archivo principal para el registro de productos
     Hecho por Alberto Leyva
     Sendas Caminos al Señor 
-    Ultima modificación: 06/11/22
+    Ultima modificación: 20/03/23
 ========================================================================================
  */
 
@@ -53,7 +53,7 @@ document.querySelector('#push').onclick = function(){
             </div>
         `;
 
-        productosArr.push(new productosObj(document.querySelector('#producto').value, document.querySelector('#precio').value));
+        //productosArr.push(new productosObj(document.querySelector('#producto').value, document.querySelector('#precio').value));
         para.append(document.querySelector('#producto').value, document.querySelector('#precio').value);
 
         }
@@ -71,7 +71,7 @@ document.querySelector('#push').onclick = function(){
             </div>
         `;
 
-        productosArr.push(new productosObj(document.querySelector('#producto').value, "donacion"));
+        //productosArr.push(new productosObj(document.querySelector('#producto').value, "donacion"));
         para.append(document.querySelector('#producto').value, "donacion");
 
         }
@@ -80,14 +80,10 @@ document.querySelector('#push').onclick = function(){
         for(var i=0; i<current_tasks.length; i++){
             current_tasks[i].onclick = function(){
                 this.parentNode.remove();
+                para.delete(this.parentNode.children[0].textContent.replace(/\s/g, ''));
             }
-        }
-
-
-
-        
-    }
-
+        }   
+    } 
 }
 
 

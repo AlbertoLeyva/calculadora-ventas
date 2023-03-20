@@ -12,9 +12,14 @@
 ========================================================================================
  */
 
+body{
+    margin: 5%;
+}
+
 header{
     font-family: 'Montserrat', sans-serif;
     text-align: center;
+    padding: 2%;
 }
 
 header img {
@@ -23,33 +28,64 @@ header img {
     margin-bottom: 2%;
 }
 
+.contenedor {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    
+}
+
 .contenedor h4 {
     font-family: 'Montserrat', sans-serif;
     text-align: center;
+    margin: 2%;
 }
 
 .nuevo-producto {
+    row-gap: 10px;
     font-family: 'Montserrat', sans-serif;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
 }
 
 .nuevo-producto button {
-    margin-top: 1%;
     margin-left: auto;
     margin-right: auto;
-    display: block;
+    font-size: 15px;
 }
 
-.nuevo-producto input {
+.nuevo-producto input[type=text], input[type=number]{
     border-color: black;
+    min-height: 40px;
+}
+
+.nuevo-producto input[type=checkbox]{
+    width: 15px;
+    height: 15px;
+}
+
+label{
+    font-size: 20px;
 }
 
 #productos{
-    width: 70%;
+    width: 100%;
     position: relative;
     margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.cantidad{
+    display: flex;
+    flex-direction: row;
+    width: 30%;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .producto{
@@ -73,9 +109,10 @@ header img {
     cursor: pointer;
     outline: none;
     height: 100%;
-    width: 10%;
     border-radius: 5px;
     color: white;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
 .siguiente {
@@ -97,8 +134,8 @@ header img {
     border: none;
     cursor: pointer;
     outline: none;
-    height: 100%;
-    width: 5%;
+    height: 80%;
     border-radius: 5px;
     color: white;
+    width:30%;
 }
