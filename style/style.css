@@ -32,7 +32,8 @@ header img {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    
+    justify-content: center;
+    row-gap: 20px;
 }
 
 .contenedor h4 {

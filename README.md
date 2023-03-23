@@ -23,5 +23,4 @@ Lista de cosas que se pueden hacer para mejorar
 * Aumentar restricciones para mismos productos o similar.
 * OBVIAMENTE cambiar el diseño.
 * Optimizar el código.
-* Reset de inputs.
 * Cuando vuelva al inicio dejar la última lista de productos.

@@ -138,3 +138,13 @@ for (var i = 0; i < masButton.length; i++){
 
     }.bind(this, i));
 }
+
+document.querySelector('#reset').onclick = function(){
+    var prodUse = document.querySelectorAll(".producto");
+    for (var i = 0; i < prodUse.length; i++){
+        productosArr[i].cantidad = 0;
+        prodUse[i].children[2].children[1].textContent = 0;
+    }
+
+    document.querySelector("#cuenta").textContent = "$0";
+}
