@@ -40,8 +40,17 @@ function cambio(){
     var str;
 
     var pago = parseInt(document.querySelector("#pago").value);
+    var cambio;
 
-    var cambio = pago - suma();
+    if(suma().substring(0,suma().indexOf(' ')) != ""){
+        cambio = pago - suma().substring(0,suma().indexOf(' '));
+    }
+    else{
+        cambio = pago - suma();
+    }
+
+    console.log(cambio)
+    
 
     if (cambio<0){
 
@@ -163,9 +172,10 @@ for (var i = 0; i < masButton.length; i++){
 
         document.querySelector("#cuenta").textContent = "$" + suma();
 
+        document.querySelector("#cambio").textContent = cambio();
+
     }.bind(this, i));
 
-    document.querySelector("#cambio").textContent = cambio();
 }
 
 document.querySelector('#reset').onclick = function(){
