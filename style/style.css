@@ -4,7 +4,7 @@
     Estilo del HTML para la calculdora de ventas económicas
     Hecho por Alberto Leyva
     Sendas Caminos al Señor 
-    Ultima modificación: 20/03/22
+    Ultima modificación: 23/03/22
     
     Intenté hacerlo medio relativa y así pero
     la neta no le sé mucho a CSS, 
@@ -66,6 +66,21 @@ header img {
 .nuevo-producto input[type=checkbox]{
     width: 15px;
     height: 15px;
+}
+
+.cambio{
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    column-gap: 30px;
+}
+
+.cambio input[type=number]{
+    border-color: black;
+    min-height: 40px;
+    max-width: 50%;
+    align-self: center;
 }
 
 label{

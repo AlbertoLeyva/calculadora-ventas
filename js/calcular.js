@@ -4,7 +4,7 @@
     Archivo principal para la calculadora de ventas económicas
     Hecho por Alberto Leyva
     Sendas Caminos al Señor 
-    Ultima modificación: 20/03/23
+    Ultima modificación: 23/03/23
 ========================================================================================
  */
 
@@ -33,6 +33,31 @@ function suma(){
     }
 
     return sumaS
+}
+
+function cambio(){
+
+    var str;
+
+    var pago = parseInt(document.querySelector("#pago").value);
+
+    var cambio = pago - suma();
+
+    if (cambio<0){
+
+        str = "Faltan $" + cambio.toString().substring(1);
+
+    }
+    else if (isNaN(cambio)){
+        str = "$0"
+    }
+    else{
+
+        str = "$" + cambio.toString();
+
+    }
+
+    return str;
 }
 
 
@@ -120,6 +145,8 @@ for (var i = 0; i < menosButton.length; i++){
 
         }
 
+        document.querySelector("#cambio").textContent = cambio();
+
     }.bind(this, i));
 }
 
@@ -137,6 +164,8 @@ for (var i = 0; i < masButton.length; i++){
         document.querySelector("#cuenta").textContent = "$" + suma();
 
     }.bind(this, i));
+
+    document.querySelector("#cambio").textContent = cambio();
 }
 
 document.querySelector('#reset').onclick = function(){
@@ -147,4 +176,11 @@ document.querySelector('#reset').onclick = function(){
     }
 
     document.querySelector("#cuenta").textContent = "$0";
+
+    document.querySelector("#pago").value = "";
+    document.querySelector("#cambio").textContent = "$0";
 }
+
+document.querySelector("#pago").addEventListener('input', function(){
+    document.querySelector("#cambio").textContent = cambio();
+})
